@@ -54,8 +54,11 @@ header {
         border-top: 10px solid transparent;
         border-bottom: 10px solid transparent;
 
-        border-left: 10px solid #134b70;
+        border-left: 10px solid #a7a7a7;
         margin-right: 10px;
+        &.active {
+          border-left: 10px solid #134b70;
+        }
       }
     }
   }

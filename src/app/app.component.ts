@@ -3,23 +3,36 @@ import { RouterOutlet } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
 import { CardsComponent } from './cards/cards.component';
 import { NewGameComponent } from './new-game/new-game.component';
-
-enum Sections {
-  home = 'home',
-  cards = 'cards',
-}
+import { MenuSections } from './menu-sections';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, LayoutComponent, CardsComponent, NewGameComponent],
-  templateUrl: './app.component.html',
+  template: `
+    <Layout
+      [activeSection]="activeSection"
+      (sectionSelected)="handleSectionSelected($event)"
+    >
+      @if (activeSection === sections.newGame) {
+      <new-game />
+      } @if(activeSection === sections.myWords) {
+      <cards-collection [words]="wordCollection" />
+      }
+      <router-outlet />
+    </Layout>
+  `,
   styleUrl: './app.component.scss',
 })
 
 // is not working if we use enum :c
 export class AppComponent {
-  activeSection = Sections.home;
+  title = 'flashcards';
+  activeSection: MenuSections = MenuSections.newGame;
+  sections = MenuSections;
+  handleSectionSelected(section: MenuSections) {
+    this.activeSection = section;
+  }
   wordCollection = [
     {
       id: 1,
