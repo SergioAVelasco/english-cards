@@ -1,5 +1,8 @@
 <Layout>
-  <h1>English improver 3000</h1>
+  @if (activeSection === "home") {
+  <new-game />
+  } @if(activeSection === "cards") {
   <cards-collection [words]="wordCollection" />
+  }
   <router-outlet />
 </Layout>

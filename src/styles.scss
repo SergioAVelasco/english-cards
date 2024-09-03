@@ -1,9 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 :root {
   color-scheme: light dark;
-  --text-color: #EEEEEE;
-  --background-color: #201E43;
+  --text-color: #eeeeee;
+  --background-color: #508c9b;
 }
 
 body {
@@ -11,4 +16,15 @@ body {
   background-color: var(--background-color);
   color: var(--text-color);
   margin: 0;
+  padding: 0;
+}
+
+button {
+  font-family: "Roboto", sans-serif;
+  background-color: #134b70;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
 }

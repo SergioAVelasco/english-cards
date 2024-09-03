@@ -6,14 +6,13 @@ import { Component, Input } from '@angular/core';
   imports: [],
   template: `
     <div (click)="isReverse = !isReverse" class="card-wraper">
-      @if (isReverse) {
-        <p>
-          <strong>{{ word.spanish }}</strong>
-        </p>
-      }
-      @else {
-        <p>{{ word.english }}</p>
-      }
+      <b>
+        @if (isReverse) {
+        {{ word.spanish }}
+        } @else {
+        {{ word.english }}
+        }
+      </b>
     </div>
   `,
   styles: `
@@ -24,6 +23,8 @@ import { Component, Input } from '@angular/core';
       margin:5px;
       cursor: pointer;
       min-width: 200px;
+      color: white;
+      font-size: 20px;
     }
   `,
 })
@@ -37,6 +38,6 @@ export class WordCardComponent {
 
   ngOnInit() {
     console.log('WordCardComponent ngOnInit');
-    console.log(JSON.stringify(this.word))
+    console.log(JSON.stringify(this.word));
   }
 }
